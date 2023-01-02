@@ -1,4 +1,5 @@
 export default interface ParallaxProps {
   children: React.ReactNode;
-  isEffectActive?: boolean;
+  isEffectActive: boolean;
+  degrees: number;
 }

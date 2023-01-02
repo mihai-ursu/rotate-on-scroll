@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import Stamp from "assets/stamp.svg";
-import Rotate from "components/Rotate/Rotate";
+import RotateEffect from "components/RotateEffect/RotateEffect";
 
 export default function Home() {
   return (
@@ -29,9 +29,9 @@ export default function Home() {
           </div>
           <div className={styles.imageWrapper}>
             <div className={styles.stampWrapper}>
-              <Rotate isEffectActive={true}>
+              <RotateEffect isEffectActive={true} degrees={-180}>
                 <Stamp className={styles.stamp} />
-              </Rotate>
+              </RotateEffect>
             </div>
             <Image
               src="/images/office.jpg"

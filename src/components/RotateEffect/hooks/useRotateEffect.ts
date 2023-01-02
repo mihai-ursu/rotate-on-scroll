@@ -2,7 +2,7 @@ import { useScroll, useSpring, useTransform } from "framer-motion";
 import useIsomorphicLayoutEffect from "hooks/useIsomorphicLayoutEffect";
 import { RefObject, useState } from "react";
 
-const useParallaxEffect = (ref: RefObject<HTMLElement>) => {
+const useParallaxEffect = (ref: RefObject<HTMLElement>, degrees: number) => {
   const [elementTop, setElementTop] = useState(0);
   const [elementHeight, setElementHeight] = useState(0);
   const [clientHeight, setClientHeight] = useState(0);
@@ -12,7 +12,7 @@ const useParallaxEffect = (ref: RefObject<HTMLElement>) => {
   const initial = Math.max(elementTop - clientHeight, 0);
   const final = elementTop + elementHeight;
 
-  const rotateRange = useTransform(scrollY, [initial, final], [0, -180]);
+  const rotateRange = useTransform(scrollY, [initial, final], [0, degrees]);
   const rotate = useSpring(rotateRange, { stiffness: 400, damping: 90 });
 
   useIsomorphicLayoutEffect(() => {
